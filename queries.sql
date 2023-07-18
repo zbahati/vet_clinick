@@ -11,12 +11,15 @@ SELECT name FROM animals WHERE date_of_birth BETWEEN '2016-01-01' AND '2019-12-3
 SELECT name FROM animals WHERE neutered = true AND escape_attempts < 3;
 
 -- 4. List the date of birth of all animals named either "Agumon" or "Pikachu":
+SELECT date_of_birth FROM animals WHERE name IN ('Agumon', 'Pikachu');
+
+-- 5 List name and escape attempts of animals that weigh more than 10.5kg:
 SELECT name, escape_attempts FROM animals WHERE weight_kg > 10.5;
 
--- 5 Find all animals that are neutered:
+-- 6 Find all animals that are neutered:
 SELECT * FROM animals WHERE neutered = true;
 
--- 6 Find all animals not named Gabumon.
+-- 7 Find all animals not named Gabumon.
 SELECT * FROM animals WHERE name <> 'Gabumon';
--- 7 Find all animals with a weight between 10.4kg and 17.3kg (including the animals with the weights that equals precisely 10.4kg or 17.3kg)
+-- 8 Find all animals with a weight between 10.4kg and 17.3kg (including the animals with the weights that equals precisely 10.4kg or 17.3kg)
 SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
