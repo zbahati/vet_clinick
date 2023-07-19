@@ -26,14 +26,21 @@ SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
 -- QUERY AND UPDATE PROJECT
 
--- 1. Update the animals table by setting the species column to digimon for all animals that have a name ending in mon.
+-- 1. Inside a transaction update the animals table by setting the species column to unspecified. Verify that change was made. Then roll back the change and verify that the species columns went back to the state before the transaction.
+UPDATE animals SET species= 'Unspecified'
+-- 2.Update the animals table by setting the species column to digimon for all animals that have a name ending in mon.
 UPDATE animals SET species ='digimon' WHERE name LIKE '%mon'
 
--- 2. Update the animals table by setting the species column to pokemon for all animals that don't have species already set.
 
+-- 3.Update the animals table by setting the species column to pokemon for all animals that don't have species already set.
 UPDATE animals SET species ='pokemon' WHERE species = 'Unspecified';
 
--- 3. Inside a transaction:
+-- 4.  delete all records in the animals table, then roll back the transaction.
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
+
+-- 5. Inside a transaction:
 -- Delete all animals born after Jan 1st, 2022.
 -- Create a savepoint for the transaction.
 -- Update all animals' weight to be their weight multiplied by -1.
@@ -49,29 +56,29 @@ ROLLBACK TO SAVEPOINT weight_update_savepoint;
 UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 COMMIT;
 
--- 4. How many animals are there?
+-- 6. How many animals are there?
 SELECT COUNT(*) FROM animals
 
--- 5. How many animals have never tried to escape?
+-- 7. How many animals have never tried to escape?
 
 SELECT COUNT(*) FROM animals WHERE escape_attempts = 0
 
--- 6 What is the average weight of animals?
+-- 8 What is the average weight of animals?
 SELECT AVG(weight_kg) FROM animals
 
--- 7 Who escapes the most, neutered or not neutered animals?
+-- 9 Who escapes the most, neutered or not neutered animals?
 SELECT neutered, SUM(escape_attempts) AS total_escape_attempts
 FROM animals
 GROUP BY neutered;
 
--- 8.What is the minimum and maximum weight of each type of animal?
+-- 10.What is the minimum and maximum weight of each type of animal?
 SELECT species,
        MIN(weight_kg) AS min_weight,
        MAX(weight_kg) AS max_weight
 FROM animals
 GROUP BY species;
 
--- 9. What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+-- 11. What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 SELECT species,
        AVG(escape_attempts) AS average_escape_attempts
 FROM animals
