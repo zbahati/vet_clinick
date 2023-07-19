@@ -8,3 +8,7 @@ CREATE TABLE animals(
 	neutered BOOLEAN,
 	weight_kg DECIMAL(10,2)
 )
+
+-- Add the "species" column to the "animals" table
+ALTER TABLE animals
+ADD COLUMN species VARCHAR(50);
