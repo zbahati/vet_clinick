@@ -63,11 +63,11 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 [ VET_CLINIC PROJECT ] <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
+> Vet_Click is a project that involves managing a database of animals in a veterinary clinic. The project includes a PostgreSQL database table named "animals" with various columns to store information about each animal, such as their ID, name, date of birth, escape attempts, neutered status, and weight in kilograms.
 
-**[your_project__name]** is a...
+**[vet_clinic project ]**is a project that associate queries to facilitate efficient data management and retrieval for the veterinary clinic, enabling better care, monitoring, and analysis of the animals under their supervision.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -78,21 +78,21 @@ After you're finished please remove all the comments and instructions!
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="#">n/a</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="#">n/a</a></li>
   </ul>
 </details>
 
 <details>
 <summary>Database</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="#">PostgreSQL</a></li>
   </ul>
 </details>
 
@@ -102,9 +102,9 @@ After you're finished please remove all the comments and instructions!
 
 > Describe between 1-3 key features of the application.
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **[postgreSQL queries]**
+- **[SELECT DATA ]**
+- **[FILTER DATA ]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -114,7 +114,7 @@ After you're finished please remove all the comments and instructions!
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](<replace-with-your-deployment-URL>)
+- [COMING SOON](<replace-with-your-deployment-URL>)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -124,30 +124,35 @@ After you're finished please remove all the comments and instructions!
 
 > Describe how a new developer could make use of your project.
 
+
 To get a local copy up and running, follow these steps.
+- install postgreSQL in your machine
+- then create database using CREATE DATABASE animals
+- then create table then paste the code from schema.sql
+- to insert data into the table you need to open the terminal cd to database name and then paste the query from queries.sql
+- for getting the data filtered you have to paste the queries in data.sql
+
+
+DONE
 
 ### Prerequisites
 
 In order to run this project you need:
 
-<!--
-Example command:
-
 ```sh
- gem install rails
+ - PostgreSQL installed
+ - shell command installed
 ```
- -->
+
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone https://github.com/zbahati/Vet_clinic_db.git
+  cd Vet_clinic_db
+
 ```
 --->
 
@@ -155,50 +160,41 @@ Example commands:
 
 Install this project with:
 
-<!--
-Example command:
-
 ```sh
-  cd my-project
-  gem install
+ you need to have postgresql installed on your machine
+
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
-  rails server
+  \dt to see all databases
+  \d to see tables
+  \q to quit
+  \h to get help to the command you are not famillia with
 ```
---->
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+ No test for this project
 ```
---->
+
 
 ### Deployment
 
 You can deploy this project using:
 
-<!--
-Example:
 
 ```sh
-
+no deployement available for this time
 ```
- -->
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -210,15 +206,8 @@ Example:
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/zbahati/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/zirimwabagabo-bahati/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -228,9 +217,9 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[Client side]**
+- [ ] **[server implimentation]**
+- [ ] **[complex queries]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -240,7 +229,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/zbahati/Vet_clinic_db/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -250,8 +239,7 @@ Feel free to check the [issues page](../../issues/).
 
 > Write a message to encourage readers to support your project
 
-If you like this project...
-
+If you like this project please give me a star and share this project to others so that they can be benefit from it.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
@@ -260,7 +248,7 @@ If you like this project...
 
 > Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+I would like to thank microverse and code reviewers that support me for the the entile project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -270,13 +258,13 @@ I would like to thank...
 
 > Add at least 2 questions new developers would ask when they decide to use your project.
 
-- **[Question_1]**
+- **[How to start using this project]**
 
-  - [Answer_1]
+  - Install the postgresql from the postgresql website
 
-- **[Question_2]**
+- **[is there any neccessary file to help me ?]**
 
-  - [Answer_2]
+  - sure, by follow the documentation of postgresql.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -284,8 +272,6 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](./LICENSE.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
