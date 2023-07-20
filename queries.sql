@@ -73,14 +73,66 @@ GROUP BY neutered;
 
 -- 10.What is the minimum and maximum weight of each type of animal?
 SELECT species,
-       MIN(weight_kg) AS min_weight,
-       MAX(weight_kg) AS max_weight
+      MIN(weight_kg) AS min_weight,
+      MAX(weight_kg) AS max_weight
 FROM animals
 GROUP BY species;
 
 -- 11. What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 SELECT species,
-       AVG(escape_attempts) AS average_escape_attempts
+      AVG(escape_attempts) AS average_escape_attempts
 FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
+
+
+
+-- QUERIES AND MULTI TABLE
+
+-- Write queries (using JOIN) to answer the following questions:
+-- 1. What animals belong to Melody Pond?
+SELECT name
+  FROM animals
+  JOIN owners
+  ON animals.owner_id = owners.id
+  WHERE owners.full_name ='Melody Pond'
+
+  -- 2 List of all animals that are pokemon (their type is Pokemon).
+SELECT animals.name
+  FROM animals
+  JOIN species
+  ON animals.species_id = species.id
+  WHERE species.name ='Pokemon'
+
+-- 3 List all owners and their animals, remember to include those that don't own any animal.
+SELECT o.full_name AS owner_name, STRING_AGG(a.name, ', ') AS animal_names
+FROM owners o
+LEFT JOIN animals a ON o.id = a.owner_id
+GROUP BY o.full_name;
+
+-- 4 How many animals are there per species?
+SELECT species.name, COUNT(*) AS animals_number
+FROM species JOIN animals ON animals.species_id = species.id
+GROUP BY species.name
+
+-- 5 List all Digimon owned by Jennifer Orwell.
+SELECT a.name AS animal_name
+FROM animals a
+JOIN owners o ON a.owner_id = o.id
+JOIN species s ON a.species_id = s.id
+WHERE o.full_name = 'Jennifer Orwell' AND s.name = 'Digimon';
+
+-- 6 List all animals owned by Dean Winchester that haven't tried to escape.
+SELECT a.name AS animal_name
+FROM animals a
+JOIN owners o ON a.owner_id = o.id
+WHERE o.full_name = 'Dean Winchester' AND a.ascape_attempts = 0;
+
+--7 Who owns the most animals?
+
+SELECT o.full_name AS owner_name, COUNT(*) AS animal_count
+FROM owners o
+JOIN animals a ON o.id = a.owner_id
+GROUP BY o.full_name
+ORDER BY COUNT(*) DESC
+LIMIT 1;
