@@ -65,3 +65,25 @@ CREATE TABLE visits (
     vet_id INTEGER REFERENCES vets(id),
     visit_date DATE,
 );
+
+
+-- Week 2 PAIR PROGRAMMING
+
+
+
+-- Depending on your machine speed, it might be enough or not. Check that by running explain analyze SELECT COUNT(*) FROM visits where animal_id = 4: - If you get Execution time: X ms and X >= 1000: that should be enough, you can continue to the project requirements. - If you get Execution time: X ms and X < 1000: please go back to point 3. and repeat until you get a value bigger than 1000ms.
+explain analyze SELECT COUNT(*) FROM visits where animal_id = 4;
+
+-- The following queries are taking too much time (1 sec = 1000ms can be considered as too much time for database query). Try them on your machine to confirm it:
+-- 1. DESCREASING EXECUTION TIME
+ EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
+EXPLAIN ANALYZESELECT * FROM visits where vet_id = 2;
+ EXPLAIN ANALYZESELECT * FROM owners where email = 'owner_18327@mail.com';
+
+-- 1.Run the following query to add an extra column to the owners table
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+-- 2. INDEXING
+CREATE INDEX visits_animal_id_asc ON visits(animal_id ASC);
+CREATE INDEX visit_vet_id_asc ON visits(vet_id DESC);
+CREATE INDEX owner_email_DESC ON owners(email DESC);
