@@ -72,6 +72,9 @@ After you're finished please remove all the comments and instructions!
 
 **[vet_clinic project ]**is a project that associate queries to facilitate efficient data management and retrieval for the veterinary clinic, enabling better care, monitoring, and analysis of the animals under their supervision.
 
+##   Database Diagram <a name="postgreSQL"></a>
+<img src="drawSQL-vet-clinic-export-2023-07-25.png" alt="database diagram" />
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
