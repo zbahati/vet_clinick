@@ -1,6 +1,6 @@
 /* Database schema to keep the structure of entire database. */
 
-CREATE TABLE animals(
+CREATE TABLE animals (
 	id SERIAL NOT NULL PRIMARY KEY,
 	name VARCHAR(50),
 	date_of_birth DATE,
@@ -41,8 +41,6 @@ ALTER TABLE animals ADD CONSTRAINT fk_species_id FOREIGN KEY (species_id) REFERE
 -- Add COLUMN owner_id on animals
 ALTER TABLE animals ADD COLUMN owner_id INT
 -- Make the owner_id Foreign key from owner table
-ALTER TABLE animals ADD CONSTRAINT fk_owner FOREIGN KEY (owner_id)
-REFERENCES owners(id)
 
 
 
@@ -77,8 +75,8 @@ explain analyze SELECT COUNT(*) FROM visits where animal_id = 4;
 -- The following queries are taking too much time (1 sec = 1000ms can be considered as too much time for database query). Try them on your machine to confirm it:
 -- 1. DESCREASING EXECUTION TIME
  EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
-EXPLAIN ANALYZESELECT * FROM visits where vet_id = 2;
- EXPLAIN ANALYZESELECT * FROM owners where email = 'owner_18327@mail.com';
+EXPLAIN ANALYZE  SELECT * FROM visits where vet_id = 2;
+ EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
 
 -- 1.Run the following query to add an extra column to the owners table
 -- Add an email column to your owners table
